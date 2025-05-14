@@ -6,7 +6,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const rememberMeCheckbox = document.getElementById('remember');
 
     // Constantes para gerenciamento de sessão
-    const SESSION_DURATION = 30 * 24 * 60 * 60 * 1000; // 30 dias em milissegundos
+    const SESSION_DURATION = 30 * 1000; // 30 segundos em milissegundos (apenas para teste)
+    // const SESSION_DURATION = 30 * 24 * 60 * 60 * 1000; // 30 dias em milissegundos (produção)
     const STORAGE_KEYS = {
         CREDENTIALS: 'promedica_credentials',
         SESSION_EXPIRY: 'promedica_session_expiry'
