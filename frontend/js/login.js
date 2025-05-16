@@ -171,12 +171,4 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    const forgotPasswordLink = document.querySelector('.forgot-password');
-    if (forgotPasswordLink) {
-        forgotPasswordLink.addEventListener('click', (e) => {
-            e.preventDefault();
-            alert('Funcionalidade "Esqueci minha senha" ainda não implementada neste MVP.');
-        });
-    }
-
 });

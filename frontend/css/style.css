@@ -326,3 +326,41 @@ body {
 .container {
     padding: 20px 30px;
 }
+
+/* Container específico para recuperar senha */
+.recover-password-container {
+    flex-grow: 1;
+    padding: 25px 20px;
+    background-color: #FFFFFF;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Estilo específico para os botões de opção de recuperação, se necessário */
+.btn-recover-option {
+    margin-top: 10px;
+}
+
+.btn-recover-option:first-of-type {
+    margin-top: 20px
+}
+
+
+.btn-recover-option i.fa-upload {
+    margin-left: 8px;
+}
+
+/* Ajustar o formulário para que os botões não sejam tratados como submit padrão */
+#recoverPasswordForm .form-group {
+    margin-bottom: 15px;
+}
+
+/* Espaçamento antes dos botões de recuperação */
+#recoverPasswordForm .error-message + .btn-recover-option,
+#recoverPasswordForm .form-group:last-of-type + .btn-recover-option {
+    margin-top: 25px;
+}
