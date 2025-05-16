@@ -179,11 +179,4 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    const signupLink = document.querySelector('.signup-link a');
-    if (signupLink) {
-        signupLink.addEventListener('click', (e) => {
-            e.preventDefault();
-            alert('Funcionalidade "Cadastre-se" ainda não implementada neste MVP.');
-        });
-    }
 });
