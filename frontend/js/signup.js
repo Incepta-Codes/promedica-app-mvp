@@ -2,7 +2,29 @@ document.addEventListener('DOMContentLoaded', function() {
     const signupForm = document.getElementById('signupForm');
     const cpfInput = document.getElementById('cpf');
     const birthdateInput = document.getElementById('birthdate');
+    const passwordInput = document.getElementById('password');
+    const confirmPasswordInput = document.getElementById('confirmPassword');
     const errorMessageDiv = document.getElementById('signupErrorMessage');
+
+    if (birthdateInput) {
+        const setInitialBirthdateType = () => {
+            if (!birthdateInput.value) {
+                birthdateInput.type = 'text';
+            } else {
+                birthdateInput.type = 'date';
+            }
+        };
+
+        birthdateInput.addEventListener('focus', function() {
+            this.type = 'date';
+        });
+
+        birthdateInput.addEventListener('blur', function() {
+            setInitialBirthdateType();
+        });
+
+        setInitialBirthdateType();
+    }
 
     if (signupForm) {
         signupForm.addEventListener('submit', function(event) {
@@ -10,7 +32,9 @@ document.addEventListener('DOMContentLoaded', function() {
             clearErrorMessage();
 
             const cpf = cpfInput.value.trim();
-            const birthdate = birthdateInput.value.trim();
+            const birthdate = birthdateInput.type === 'date' ? birthdateInput.value : (birthdateInput.value.trim() !== '' ? birthdateInput.value : '');
+            const password = passwordInput.value.trim();
+            const confirmPassword = confirmPasswordInput.value.trim();
 
             if (cpf === '') {
                 displayErrorMessage('Por favor, digite seu CPF.');
@@ -24,29 +48,45 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
 
-            console.log('Tentativa de cadastro com:', { cpf, birthdate });
+            if (password === '') {
+                displayErrorMessage('Por favor, digite sua senha.');
+                passwordInput.focus();
+                return;
+            }
+
+            if (password.length < 6) {
+                displayErrorMessage('A senha deve ter pelo menos 6 caracteres.');
+                passwordInput.focus();
+                return;
+            }
+
+            if (confirmPassword === '') {
+                displayErrorMessage('Por favor, confirme sua senha.');
+                confirmPasswordInput.focus();
+                return;
+            }
+
+            if (password !== confirmPassword) {
+                displayErrorMessage('As senhas não coincidem.');
+                confirmPasswordInput.focus();
+                return;
+            }
+
+            console.log('Tentativa de cadastro com:', { cpf, birthdate, password });
             displayLoadingMessage('Processando cadastro...');
 
             setTimeout(() => {
-                // Simulação de lógica de backend
-                // Aqui você poderia adicionar uma verificação mockada
-                // Por exemplo, se um CPF específico já existe ou se a data é válida
-
-                // Exemplo de sucesso mockado:
-                alert('Cadastro solicitado! (Funcionalidade mockada). Em um cenário real, você receberia um e-mail ou SMS para continuar.');
+                alert('Cadastro realizado com sucesso! (Funcionalidade mockada). Você já pode fazer login.');
                 clearErrorMessage();
-                // Poderia redirecionar para login ou uma tela de "verifique seu email"
-                // window.location.href = 'login.html';
-
-                // Exemplo de erro mockado:
-                // displayErrorMessage('CPF já cadastrado ou dados inválidos.');
-
+                window.location.href = 'login.html';
             }, 1500);
         });
     }
 
-    cpfInput.addEventListener('input', clearErrorMessage);
-    birthdateInput.addEventListener('input', clearErrorMessage);
+    if(cpfInput) cpfInput.addEventListener('input', clearErrorMessage);
+    if(birthdateInput) birthdateInput.addEventListener('input', clearErrorMessage);
+    if(passwordInput) passwordInput.addEventListener('input', clearErrorMessage);
+    if(confirmPasswordInput) confirmPasswordInput.addEventListener('input', clearErrorMessage);
 
     function displayErrorMessage(message) {
         errorMessageDiv.textContent = message;
@@ -60,8 +100,10 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function clearErrorMessage() {
-        errorMessageDiv.textContent = '';
-        errorMessageDiv.style.display = 'none';
-        errorMessageDiv.style.color = '#D32F2F';
+        if (errorMessageDiv) {
+            errorMessageDiv.textContent = '';
+            errorMessageDiv.style.display = 'none';
+            errorMessageDiv.style.color = '#D32F2F';
+        }
     }
 });

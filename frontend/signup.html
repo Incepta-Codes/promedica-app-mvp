@@ -21,7 +21,7 @@
     </nav>
 
     <main class="signup-container">
-        <p class="instructions-title">Para cadastrar informe seu CPF e data de nascimento</p>
+        <p class="instructions-title">Para cadastrar informe seu CPF, data de nascimento e defina uma senha</p>
 
         <form id="signupForm">
             <div class="form-group">
@@ -29,6 +29,12 @@
             </div>
             <div class="form-group">
                 <input type="text" id="birthdate" name="birthdate" placeholder="Digite sua data de nascimento" required onfocus="(this.type='date')" onblur="(this.type='text')">
+            </div>
+            <div class="form-group">
+                <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
+            </div>
+            <div class="form-group">
+                <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirme sua senha" required>
             </div>
 
             <div id="signupErrorMessage" class="error-message"></div>

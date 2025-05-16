@@ -1,22 +1,20 @@
-/* Reset básico e configurações globais */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif; /* Fonte genérica, ajuste conforme necessário */
+    font-family: Arial, sans-serif;
 }
 
 body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-color: #f4f4f8; /* Um cinza claro para o fundo geral da "tela do celular" */
+    background-color: #f4f4f8;
     color: #333;
 }
 
-/* Barra de navegação do App */
 .app-nav-bar {
-    background-color: #37474F; /* Azul escuro/cinza do protótipo */
+    background-color: #37474F;
     color: white;
     padding: 12px 15px;
     display: flex;
@@ -38,21 +36,20 @@ body {
     cursor: pointer;
 }
 
-/* Container principal do Login */
 .login-container {
     flex-grow: 1;
     padding: 25px 20px;
-    background-color: #FFFFFF; /* Fundo branco para a área de conteúdo */
+    background-color: #FFFFFF;
     width: 100%;
-    max-width: 400px; /* Limita a largura em desktops para simular celular */
-    margin: 0 auto; /* Centraliza se a tela for maior */
+    max-width: 400px;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 .welcome-title {
-    color: #D32F2F; /* Vermelho do protótipo */
+    color: #D32F2F;
     font-size: 1.4em;
     font-weight: bold;
     text-align: center;
@@ -70,17 +67,35 @@ body {
 }
 
 .form-group input[type="text"],
-.form-group input[type="password"] {
+.form-group input[type="password"],
+.form-group input[type="date"] {
     width: 100%;
     padding: 12px 15px;
     border: 1px solid #DDD;
     border-radius: 5px;
-    background-color: #F5F5F5; /* Cinza claro para campos de input */
+    background-color: #F5F5F5;
     font-size: 1em;
+    font-family: inherit;
+    color: #333;
+    box-sizing: border-box;
+    line-height: 1.5;
 }
 
 .form-group input::placeholder {
     color: #888;
+}
+
+.form-group input#birthdate[type="text"]::placeholder {
+    color: #888;
+    opacity: 1;
+}
+
+.form-group input#birthdate[type="date"]:invalid,
+.form-group input#birthdate[type="date"]::-webkit-datetime-edit-fields-wrapper {
+    color: #888;
+}
+.form-group input#birthdate[type="date"] {
+     color: #333;
 }
 
 .form-options {
@@ -98,7 +113,7 @@ body {
 
 .remember-me input[type="checkbox"] {
     margin-right: 5px;
-    accent-color: #D32F2F; /* Cor do checkbox quando marcado */
+    accent-color: #D32F2F;
 }
 
 .remember-me label {
@@ -106,7 +121,7 @@ body {
 }
 
 .forgot-password {
-    color: #007BFF; /* Azul para links */
+    color: #007BFF;
     text-decoration: none;
 }
 
@@ -115,10 +130,10 @@ body {
 }
 
 .error-message {
-    color: #D32F2F; /* Vermelho para mensagens de erro */
+    color: #D32F2F;
     font-size: 0.9em;
     margin-bottom: 10px;
-    min-height: 1.2em; /* Para evitar que o layout pule quando a mensagem aparece */
+    min-height: 1.2em;
     text-align: center;
 }
 
@@ -135,7 +150,7 @@ body {
 }
 
 .btn-primary {
-    background-color: #37474F; /* Azul escuro/cinza do protótipo */
+    background-color: #37474F;
     color: white;
 }
 
@@ -146,29 +161,26 @@ body {
 .btn-secondary {
     background-color: white;
     color: #333;
-    border: 1px solid #CCC; /* Borda cinza claro */
+    border: 1px solid #CCC;
 }
 
 .btn-secondary:hover {
     background-color: #f8f8f8;
 }
 
-/* Estilos para o botão de biometria e seu ícone */
 .btn-biometric {
-    display: inline-flex; /* Ajuda no alinhamento vertical do texto e ícone */
+    display: inline-flex;
     align-items: center;
-    justify-content: center; /* Centraliza o conteúdo se o botão for mais largo */
+    justify-content: center;
 }
 
 .btn-biometric .fa-fingerprint {
-    margin-left: 8px; /* Adiciona um espaço entre o texto e o ícone */
-    font-size: 1.1em; /* Pode ajustar o tamanho do ícone se necessário */
-    /* vertical-align: middle; */ /* Outra opção para alinhamento, pode testar */
+    margin-left: 8px;
+    font-size: 1.1em;
 }
 
-/* Removendo o ::after que colocamos antes para o emoji */
 .btn-secondary::after {
-    content: ''; /* Remove o emoji anterior */
+    content: '';
 }
 
 .signup-link {
@@ -179,7 +191,7 @@ body {
 }
 
 .signup-link a {
-    color: #007BFF; /* Azul para links */
+    color: #007BFF;
     text-decoration: none;
     font-weight: bold;
 }
@@ -188,9 +200,8 @@ body {
     text-decoration: underline;
 }
 
-/* Footer do App */
 .app-footer {
-    background-color: #D32F2F; /* Vermelho do protótipo */
+    background-color: #D32F2F;
     color: white;
     padding: 20px 15px;
     text-align: center;
@@ -200,15 +211,13 @@ body {
 
 .app-footer .plus-icon {
     font-weight: bold;
-    color: #37474F; /* Cor do "+" no logo */
-    background-color: white; /* Fundo branco para o "+" */
+    color: #37474F;
+    background-color: white;
     padding: 0 5px;
     border-radius: 3px;
     margin-left: 2px;
 }
 
-
-/* Responsividade muito básica para telas menores (já é mobile first) */
 @media (max-width: 400px) {
     .login-container {
         margin: 0;
@@ -216,7 +225,6 @@ body {
     }
 }
 
-/* Barra de Navegação com Ícone de Voltar */
 .app-nav-bar .back-icon a {
     color: white;
     text-decoration: none;
@@ -224,7 +232,6 @@ body {
     margin-right: 10px;
 }
 
-/* Container específico para o cadastro */
 .signup-container {
     flex-grow: 1;
     padding: 25px 20px;
@@ -252,12 +259,70 @@ body {
     flex-direction: column;
 }
 
-/* Botão de cadastro já deve pegar o estilo .btn .btn-primary */
 .btn i.fa-arrow-right {
     margin-left: 8px;
 }
 
-/* Mensagem de erro específica para o signup, caso precise de ID diferente */
 #signupErrorMessage {
     margin-bottom: 15px;
+}
+
+.appointments-section {
+    margin-top: 30px;
+    width: 100%;
+    max-width: 600px;
+    text-align: left;
+}
+
+.appointments-section h2 {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #D32F2F;
+    padding-bottom: 5px;
+}
+
+.appointment-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.appointment-item {
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-left: 5px solid #007BFF;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.appointment-info {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    line-height: 1.6;
+    color: #444;
+}
+
+.appointment-info strong {
+    color: #333;
+}
+
+.appointment-info .data-value {
+    color: #555;
+}
+
+.appointment-info:last-child {
+    margin-bottom: 0;
+}
+
+.no-appointments {
+    text-align: center;
+    padding: 20px;
+    font-size: 1.1rem;
+    color: #777;
+}
+
+.container {
+    padding: 20px 30px;
 }
