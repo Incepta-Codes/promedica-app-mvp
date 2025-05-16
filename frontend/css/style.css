@@ -293,11 +293,6 @@ body {
 .btn-recover-option:first-of-type {
     margin-top: 20px;
 }
-#recoverPasswordForm .error-message + .btn-recover-option,
-#recoverPasswordForm .form-group:last-of-type + .btn-recover-option {
-    margin-top: 25px;
-}
-
 
 .main-menu-container {
     flex-grow: 1;
@@ -356,4 +351,42 @@ body {
         margin: 0;
         border-radius: 0;
     }
+}
+
+#recoverPasswordForm .error-message + .btn-recover-option,
+#recoverPasswordForm .form-group:last-of-type + .btn-recover-option {
+    margin-top: 25px;
+}
+
+.comun-titulo{
+    width: 100%;
+    height: 70px;
+    text-align: center;
+    align-content: center;
+    font-size: 1.2em;
+    font-weight: bold;
+    border-top: 1px solid #ccc;
+}
+
+.contato {
+  width: 100%;
+  height: 70px;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  padding-right: 25%;
+  align-content: center;
+}
+
+.conteudo-contato {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+}
+
+.conteudo-contato h1 {
+  margin: 0;
+  font-size: 1.2em;
+  color: #887d7d;
+  font-weight: bold;
 }
