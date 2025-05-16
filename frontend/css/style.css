@@ -23,9 +23,22 @@ body {
     font-size: 0.9em;
 }
 
+.app-nav-bar .back-icon a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5em;
+    margin-right: 10px;
+}
+
 .menu-icon {
     cursor: pointer;
+    display: flex;
+    align-items: center;
 }
+.app-nav-bar .menu-icon i.fa-bars {
+    margin-right: 5px;
+}
+
 
 .nav-title {
     font-weight: bold;
@@ -35,8 +48,12 @@ body {
     margin-left: 10px;
     cursor: pointer;
 }
+.search-icons span i.fa-search {
+    font-size: 1.1em;
+}
 
-.login-container {
+
+.login-container, .signup-container, .recover-password-container {
     flex-grow: 1;
     padding: 25px 20px;
     background-color: #FFFFFF;
@@ -56,7 +73,17 @@ body {
     margin-bottom: 25px;
 }
 
-#loginForm {
+.instructions-title {
+    color: #D32F2F;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 30px;
+    line-height: 1.4;
+}
+
+
+#loginForm, #signupForm, #recoverPasswordForm {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -75,27 +102,10 @@ body {
     border-radius: 5px;
     background-color: #F5F5F5;
     font-size: 1em;
-    font-family: inherit;
-    color: #333;
-    box-sizing: border-box;
-    line-height: 1.5;
 }
 
 .form-group input::placeholder {
     color: #888;
-}
-
-.form-group input#birthdate[type="text"]::placeholder {
-    color: #888;
-    opacity: 1;
-}
-
-.form-group input#birthdate[type="date"]:invalid,
-.form-group input#birthdate[type="date"]::-webkit-datetime-edit-fields-wrapper {
-    color: #888;
-}
-.form-group input#birthdate[type="date"] {
-     color: #333;
 }
 
 .form-options {
@@ -135,7 +145,12 @@ body {
     margin-bottom: 10px;
     min-height: 1.2em;
     text-align: center;
+    display: none;
 }
+#signupErrorMessage, #recoverErrorMessage {
+    margin-bottom: 15px;
+}
+
 
 .btn {
     padding: 12px 15px;
@@ -147,6 +162,9 @@ body {
     text-align: center;
     margin-bottom: 10px;
     width: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .btn-primary {
@@ -168,19 +186,11 @@ body {
     background-color: #f8f8f8;
 }
 
-.btn-biometric {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.btn-biometric .fa-fingerprint {
+.btn-biometric .fa-fingerprint,
+.btn i.fa-arrow-right,
+.btn-recover-option i.fa-upload {
     margin-left: 8px;
     font-size: 1.1em;
-}
-
-.btn-secondary::after {
-    content: '';
 }
 
 .signup-link {
@@ -200,6 +210,7 @@ body {
     text-decoration: underline;
 }
 
+
 .app-footer {
     background-color: #D32F2F;
     color: white;
@@ -218,54 +229,6 @@ body {
     margin-left: 2px;
 }
 
-@media (max-width: 400px) {
-    .login-container {
-        margin: 0;
-        border-radius: 0;
-    }
-}
-
-.app-nav-bar .back-icon a {
-    color: white;
-    text-decoration: none;
-    font-size: 1.5em;
-    margin-right: 10px;
-}
-
-.signup-container {
-    flex-grow: 1;
-    padding: 25px 20px;
-    background-color: #FFFFFF;
-    width: 100%;
-    max-width: 400px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.instructions-title {
-    color: #D32F2F;
-    font-size: 1.2em;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 30px;
-    line-height: 1.4;
-}
-
-#signupForm {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
-.btn i.fa-arrow-right {
-    margin-left: 8px;
-}
-
-#signupErrorMessage {
-    margin-bottom: 15px;
-}
 
 .appointments-section {
     margin-top: 30px;
@@ -323,43 +286,73 @@ body {
     color: #777;
 }
 
-.container {
-    padding: 20px 30px;
-}
 
-/* Container específico para recuperar senha */
-.recover-password-container {
-    flex-grow: 1;
-    padding: 25px 20px;
-    background-color: #FFFFFF;
-    width: 100%;
-    max-width: 400px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-/* Estilo específico para os botões de opção de recuperação, se necessário */
 .btn-recover-option {
     margin-top: 10px;
 }
-
 .btn-recover-option:first-of-type {
-    margin-top: 20px
+    margin-top: 20px;
 }
 
-
-.btn-recover-option i.fa-upload {
-    margin-left: 8px;
+.main-menu-container {
+    flex-grow: 1;
+    background-color: #FFFFFF;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
-/* Ajustar o formulário para que os botões não sejam tratados como submit padrão */
-#recoverPasswordForm .form-group {
-    margin-bottom: 15px;
+.menu-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    flex-grow: 1;
 }
 
-/* Espaçamento antes dos botões de recuperação */
+.menu-item {
+    border-bottom: 1px solid #E0E0E0;
+}
+
+.menu-item:last-child {
+    border-bottom: none;
+}
+
+.menu-item a {
+    display: flex;
+    align-items: center;
+    padding: 18px 20px;
+    text-decoration: none;
+    color: #333;
+    font-size: 1.1em;
+    transition: background-color 0.2s ease-in-out;
+    background-color: #FAF6F0;
+}
+
+.menu-item a:hover,
+.menu-item a:focus {
+    background-color: #f0ebe5;
+}
+
+.menu-icon-item {
+    font-size: 1.5em;
+    margin-right: 15px;
+    width: 30px;
+    text-align: center;
+    color: #37474F;
+}
+
+.menu-item span {
+    flex-grow: 1;
+}
+
+@media (max-width: 400px) {
+    .login-container, .signup-container, .recover-password-container {
+        margin: 0;
+        border-radius: 0;
+    }
+}
+
 #recoverPasswordForm .error-message + .btn-recover-option,
 #recoverPasswordForm .form-group:last-of-type + .btn-recover-option {
     margin-top: 25px;
@@ -382,7 +375,6 @@ body {
   border-bottom: 1px solid #ccc;
   padding-right: 25%;
   align-content: center;
-  
 }
 
 .conteudo-contato {
@@ -397,5 +389,4 @@ body {
   font-size: 1.2em;
   color: #887d7d;
   font-weight: bold;
-
 }

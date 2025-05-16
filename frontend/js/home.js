@@ -1,56 +1,61 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Verifica se o usuário está autenticado
     checkAuthentication();
 
-    // Adiciona evento de logout ao botão
-    const logoutButton = document.querySelector('.logout-btn');
-    if (logoutButton) {
-        logoutButton.addEventListener('click', handleLogout);
+    const logoutLink = document.getElementById('logoutLink');
+    if (logoutLink) {
+        logoutLink.addEventListener('click', function(event) {
+            event.preventDefault();
+            handleLogout();
+        });
     }
 });
 
-/**
- * Verifica se o usuário está autenticado antes de mostrar a página
- * Se não estiver autenticado, redireciona para a página de login
- */
 function checkAuthentication() {
     const sessionExpiry = localStorage.getItem('promedica_session_expiry');
-    const credentials = localStorage.getItem('promedica_credentials');
+    console.log("[home.js] Verificando autenticação...");
+    console.log("[home.js] Valor de sessionExpiry do localStorage:", sessionExpiry);
 
-    if (!sessionExpiry || !credentials) {
+    if (!sessionExpiry) {
+        console.log("[home.js] Chave 'promedica_session_expiry' NÃO encontrada no localStorage. Redirecionando para login.");
         redirectToLogin();
         return;
     }
 
     const now = new Date().getTime();
-    if (now > parseInt(sessionExpiry)) {
-        // Sessão expirada
+    const expiryTime = parseInt(sessionExpiry);
+
+    if (isNaN(expiryTime)) {
+        console.log("[home.js] Valor de 'promedica_session_expiry' não é um número válido. Limpando e redirecionando.");
         clearStoredCredentials();
         redirectToLogin();
+        return;
+    }
+    
+    console.log("[home.js] Tempo atual:", now);
+    console.log("[home.js] Tempo de expiração:", expiryTime);
+
+    if (now > expiryTime) {
+        console.log("[home.js] Sessão EXPIRADA (agora > expiração). Limpando e redirecionando para login.");
+        clearStoredCredentials();
+        redirectToLogin();
+    } else {
+        console.log("[home.js] Sessão VÁLIDA. Usuário pode permanecer na página.");
     }
 }
 
-/**
- * Realiza o logout do usuário, limpando as credenciais armazenadas
- * e redirecionando para a página de login
- */
-function handleLogout(event) {
-    event.preventDefault();
+function handleLogout() {
+    console.log("[home.js] Iniciando logout...");
     clearStoredCredentials();
     redirectToLogin();
 }
 
-/**
- * Remove as credenciais e informações de sessão do localStorage
- */
 function clearStoredCredentials() {
     localStorage.removeItem('promedica_credentials');
     localStorage.removeItem('promedica_session_expiry');
+    console.log("[home.js] Credenciais e sessão limpas do localStorage.");
 }
 
-/**
- * Redireciona o usuário para a página de login
- */
 function redirectToLogin() {
+    console.log("[home.js] Redirecionando para login.html...");
     window.location.href = 'login.html';
-} 
+}
