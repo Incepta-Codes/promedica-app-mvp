@@ -686,3 +686,100 @@ body {
 .result-item .btn-agendar:hover {
     background-color: #45a049;
 }
+
+.cancel-appointment-container {
+    flex-grow: 1;
+    padding: 0 0 20px 0;
+    background-color: #e9e9ed; 
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.appointment-cards-list {
+    padding: 15px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.appointment-card {
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 15px;
+    border-left: 5px solid #37474F;
+}
+
+.appointment-card .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+
+.appointment-card .location-name {
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #333;
+}
+
+.appointment-card .date-time {
+    text-align: right;
+    font-size: 0.85em;
+    color: #555;
+}
+.appointment-card .date-time .date, 
+.appointment-card .date-time .time {
+    display: block;
+}
+.appointment-card .date-time strong {
+    color: #333;
+}
+
+.appointment-card .card-body p {
+    font-size: 0.95em;
+    color: #444;
+    margin-bottom: 6px;
+    line-height: 1.5;
+}
+.appointment-card .card-body p strong {
+    color: #333;
+}
+
+.appointment-card .card-footer-info {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    font-size: 0.9em;
+}
+.appointment-card .distance {
+    font-weight: bold;
+    color: #333;
+}
+
+.btn-cancel-action {
+    background-color: #37474F;
+    color: white;
+    width: 100%;
+    padding: 12px;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: none;
+}
+.btn-cancel-action:hover {
+    background-color: #2C3E50;
+}
+
+.no-items-message {
+    text-align: center;
+    padding: 30px 20px;
+    font-size: 1.1em;
+    color: #777;
+}
