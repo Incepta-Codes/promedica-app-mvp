@@ -465,3 +465,146 @@ body {
 #providerSearchForm .btn-primary {
     margin-top: 15px;
 }
+
+.search-results-container {
+    flex-grow: 1;
+    padding: 0 0 20px 0;
+    background-color: #e9e9ed;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.results-title {
+    background-color: #FFFFFF;
+    font-size: 0.9em;
+    color: #333;
+    padding: 15px 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-bottom: 1px solid #e0e0e0;
+    text-align: left;
+}
+
+.result-list {
+    padding: 15px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.result-item {
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 15px;
+    border-left: 5px solid #D32F2F;
+}
+
+.item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+
+.location-name {
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #333;
+}
+
+.date-time {
+    text-align: right;
+    font-size: 0.85em;
+    color: #555;
+}
+.date-time .date, .date-time .time {
+    display: block;
+}
+.date-time strong {
+    color: #333;
+}
+
+
+.item-body p {
+    font-size: 0.95em;
+    color: #444;
+    margin-bottom: 6px;
+    line-height: 1.5;
+}
+.item-body p strong {
+    color: #333;
+}
+
+.item-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 12px;
+    margin-bottom: 15px;
+    font-size: 0.9em;
+    padding-top: 10px;
+    border-top: 1px solid #f0f0f0;
+}
+
+.action-link {
+    color: #007BFF;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+}
+.action-link i {
+    margin-right: 5px;
+    font-size: 1.1em;
+}
+.phone-link i.fa-phone-alt {
+    color: #4CAF50;
+}
+.map-link i.fa-map-marker-alt {
+    color: #D32F2F;
+}
+
+.distance {
+    font-weight: bold;
+    color: #333;
+    margin-right: 10px;
+}
+.distance-map {
+    display: flex;
+    align-items: center;
+}
+
+
+.btn-agendar {
+    background-color: #4CAF50;
+    color: white;
+    width: 100%;
+    padding: 12px;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.btn-agendar:hover {
+    background-color: #45a049;
+}
+
+.footer-with-nav-arrow {
+    position: relative;
+}
+
+.footer-nav-arrow {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 1.5em;
+    text-decoration: none;
+}
+.footer-nav-arrow:hover {
+    opacity: 0.8;
+}
