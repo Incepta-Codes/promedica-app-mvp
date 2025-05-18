@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rede Credenciada - Promédica Saúde</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+    <nav class="app-nav-bar">
+        <div class="back-icon">
+            <a href="home.html" aria-label="Voltar para o menu principal"><</a>
+        </div>
+        <div class="nav-title">REDE CREDENCIADA</div>
+        <div class="search-icons">
+            <span><i class="fas fa-search"></i></span>
+            <span><i class="fas fa-search"></i></span>
+        </div>
+    </nav>
+
+    <main class="provider-search-container">
+        <section class="user-info-display">
+            <h2 class="section-title">PROCURE NO GUIA MÉDICO</h2>
+            <div class="info-item">
+                <span class="info-label">Número da Carteira:</span>
+                <span class="info-value">123456789</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Plano:</span>
+                <span class="info-value">E2</span>
+            </div>
+        </section>
+
+        <section class="filters-section">
+            <h2 class="section-title">SELECIONE O FILTRO</h2>
+            <form id="providerSearchForm">
+                <div class="form-group">
+                    <select id="estado" name="estado" required>
+                        <option value="" disabled selected>Selecione o Estado</option>
+                        <option value="SP">São Paulo</option>
+                        <option value="RJ">Rio de Janeiro</option>
+                        <option value="MG">Minas Gerais</option>
+                        <option value="CE">Ceará</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                     <select id="cidade" name="cidade" required>
+                        <option value="" disabled selected>Selecione a cidade</option>
+                        <option value="SAO_PAULO">São Paulo (Capital)</option>
+                        <option value="RIO_JANEIRO">Rio de Janeiro (Capital)</option>
+                        <option value="BELO_HORIZONTE">Belo Horizonte</option>
+                        <option value="FORTALEZA">Fortaleza</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                     <select id="tipoServico" name="tipoServico" required>
+                        <option value="" disabled selected>Selecione o tipo de serviço</option>
+                        <option value="CONSULTA">Consulta Médica</option>
+                        <option value="EXAME">Exame Laboratorial</option>
+                        <option value="HOSPITAL">Hospital</option>
+                        <option value="CLINICA">Clínica Especializada</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                     <select id="especialidade" name="especialidade" required>
+                        <option value="" disabled selected>Selecione a especialidade</option>
+                        <option value="CARDIOLOGIA">Cardiologia</option>
+                        <option value="DERMATOLOGIA">Dermatologia</option>
+                        <option value="ORTOPEDIA">Ortopedia</option>
+                        <option value="PEDIATRIA">Pediatria</option>
+                    </select>
+                </div>
+
+                <div id="searchErrorMessage" class="error-message"></div>
+
+                <button type="submit" class="btn btn-primary">Pesquisar</button>
+            </form>
+        </section>
+    </main>
+
+    <footer class="app-footer">
+        <span>Promédica <span class="plus-icon">+</span></span>
+    </footer>
+
+    <script src="js/provider-search.js"></script>
+</body>
+</html>
