@@ -25,7 +25,7 @@
 
         <div class="result-list">
             <!-- Item de Resultado Mockado 1 -->
-            <div class="result-item">
+            <div class="result-item" data-id="1" data-location="Policlínica" data-professional="Dr (a) João Alves" data-date="14/04/2025" data-time="08h:00">
                 <div class="item-header">
                     <span class="location-name">Policlínica</span>
                     <div class="date-time">
@@ -51,7 +51,7 @@
             </div>
 
             <!-- Item de Resultado Mockado 2 -->
-            <div class="result-item">
+            <div class="result-item" data-id="2" data-location="Clínica" data-professional="Dr (a) Ana Souza" data-date="14/04/2025" data-time="10h:00">
                 <div class="item-header">
                     <span class="location-name">Clínica</span>
                     <div class="date-time">
@@ -76,6 +76,18 @@
                 <button class="btn btn-primary btn-agendar">Agendar</button>
             </div>
         </div>
+
+        <!-- Modal/Diálogo de Confirmação de Agendamento (inicialmente oculto) -->
+        <div id="confirmationModal" class="modal-overlay" style="display: none;">
+            <div class="modal-content">
+                <p id="confirmationText">CONFIRMAR AGENDAMENTO<br>PARA A DATA <span class="confirm-data" id="confirmDate"></span><br>às <span class="confirm-data" id="confirmTime"></span>?</p>
+                <div class="modal-actions">
+                    <button id="confirmYesBtn" class="btn btn-confirm">Confirmar</button>
+                    <button id="confirmNoBtn" class="btn btn-cancel">Cancelar</button>
+                </div>
+            </div>
+        </div>
+
     </main>
 
     <footer class="app-footer footer-with-nav-arrow">
